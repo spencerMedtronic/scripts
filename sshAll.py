@@ -1,9 +1,8 @@
 from pssh.clients import ParallelSSHClient
 
-hosts = ['haol3-d28', 'phamt35-d16', 'phamt35-d17']
-client = ParallelSSHClient(hosts)
-
-output = client.run_command('date', return_List=True)
-for host_output in output:
-    for line in host_output.stdout:
+client = ParallelSSHClient(['haol3-d28', 'phamt35-d16', 'phamt35-d17'])
+output = client.run_command('uname')
+for host_out in output:
+    for line in host_out.stdout:
         print(line)
+    exit_code = host_out.exit_code
