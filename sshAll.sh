@@ -1,5 +1,5 @@
 #!/bin/bash
 
-for server in 'cat TNAhosts.txt'; do
-    sshpass -p "fnJMM(JWm0TetkQ" ssh-copy-id -i ~/.ssh/id_rsa.pub vagrant@$server
-done
+while read -u10 line; do
+  ssh vagrant@$line "hostname";
+done 10< TNAhosts.txt
