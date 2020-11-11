@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#usage: ./sshAll.sh hostlist.txt
 PASS='fnJMM(JWm0TetkQ'
 while read -u10 line; do
   ssh vagrant@$line "dos2unix --version";
